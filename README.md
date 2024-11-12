@@ -1,7 +1,3 @@
-Here’s a **nice, visually appealing README** for your project that includes an introduction, features, setup instructions, usage, and deployment details. This README is formatted in Markdown to be directly compatible with GitHub.
-
----
-
 # **FortiPass** 🔒
 
 FortiPass is a sleek and robust **Password Strength Checker** designed to help users create stronger, more secure passwords. Built with Flask and Docker, FortiPass evaluates password strength based on length, complexity, and patterns, ensuring users get feedback to enhance their password security.
