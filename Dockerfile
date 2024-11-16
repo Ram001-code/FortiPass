@@ -20,4 +20,4 @@ EXPOSE 443
 ENV FLASK_APP=app.py
 
 # Run the Flask app on port 80
-CMD ["flask", "run", "--host=0.0.0.0", "--port=443"]
+CMD ["flask", "run"]
