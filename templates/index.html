@@ -5,113 +5,141 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Strength Checker</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="../static/favicon.ico" type="image/x-icon">
     <style>
-        /* Styling the body and container */
+        /* General styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
-            background: linear-gradient(to right, #1d2b64, #f8cdda);
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: #333;
         }
+
+        /* Container styling */
         .container {
-            width: 100%;
+            width: 90%;
             max-width: 400px;
+            background: #fff;
             padding: 30px;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             text-align: center;
             animation: fadeIn 1s ease;
         }
 
         /* Heading styles */
         h1 {
-            font-size: 1.8em;
+            font-size: 2em;
+            color: #764ba2;
             margin-bottom: 10px;
-            color: #1d2b64;
+        }
+        h1 i {
+            color: #667eea;
+            margin-right: 8px;
         }
 
-        /* Form input styling */
+        /* Form styles */
         form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            margin-top: 20px;
         }
         label {
-            margin-top: 10px;
+            display: block;
+            margin-bottom: 10px;
             font-weight: bold;
+            font-size: 1rem;
             color: #555;
         }
         input[type="password"] {
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 1em;
-            transition: all 0.3s ease;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 2px solid #764ba2;
+            border-radius: 10px;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s;
         }
         input[type="password"]:focus {
-            border-color: #1d2b64;
-            box-shadow: 0 0 5px rgba(29, 43, 100, 0.4);
+            border-color: #667eea;
+            box-shadow: 0 0 8px rgba(102, 126, 234, 0.5);
         }
 
-        /* Button styling */
+        /* Button styles */
         button {
-            display: flex;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #1d2b64;
+            width: 100%;
+            padding: 12px 20px;
+            background: linear-gradient(to right, #667eea, #764ba2);
             color: #fff;
-            border: none;
-            border-radius: 8px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin-top: 10px;
+            font-size: 1rem;
             font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
         }
         button:hover {
-            background-color: #f8cdda;
-            color: #1d2b64;
+            background: linear-gradient(to right, #764ba2, #667eea);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.5);
         }
         button i {
             margin-right: 8px;
         }
 
-        /* Styling for feedback */
+        /* Feedback styles */
         .feedback {
-            margin-top: 15px;
-            padding: 10px;
-            border-radius: 8px;
-            background-color: #f8f9fa;
-            color: #ff4d4d;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
             text-align: left;
+            color: #444;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .feedback strong {
+            font-size: 1.1rem;
+            color: #764ba2;
         }
         .feedback ul {
-            list-style-type: none;
+            list-style: none;
+            margin-top: 10px;
             padding: 0;
         }
         .feedback li {
-            margin: 5px 0;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+        }
+        .feedback li i {
+            color: #667eea;
+            margin-right: 8px;
         }
 
         /* Password strength display */
         h2 {
-            color: #1d2b64;
-            margin-top: 15px;
-            font-weight: bold;
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: #667eea;
         }
 
-        /* Animation for container */
+        /* Animations */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -119,9 +147,9 @@
     <div class="container">
         <h1><i class="fas fa-lock"></i> Password Strength Checker</h1>
         <form method="POST">
-            <label for="password">Enter Password:</label>
-            <input type="password" name="password" id="password" required>
-            <button type="submit"><i class="fas fa-check-circle"></i> Check Strength</button>
+            <label for="password">Enter Your Password</label>
+            <input type="password" name="password" id="password" placeholder="Type your password here" required>
+            <button type="submit"><i class="fas fa-check-circle"></i> Check Password</button>
         </form>
 
         <!-- Password strength result display -->
@@ -132,7 +160,7 @@
                 <strong>Suggestions:</strong>
                 <ul>
                     {% for f in feedback %}
-                        <li><i class="fas fa-exclamation-circle"></i> {{ f }}</li>
+                        <li><i class="fas fa-lightbulb"></i> {{ f }}</li>
                     {% endfor %}
                 </ul>
             </div>
