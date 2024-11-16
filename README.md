@@ -66,10 +66,10 @@ FortiPass is a sleek and robust **Password Strength Checker** designed to help u
 5. **Run Docker Container**
 
    ```bash
-   docker run -d -p 80:80 fortipass-app
+   docker run -d -p 5000:5000 fortipass-app
    ```
 
-   Your app should now be accessible at `http://localhost`.
+   Your app should now be accessible at `http://localhost:5000`.
 
 ---
 
@@ -78,16 +78,16 @@ FortiPass is a sleek and robust **Password Strength Checker** designed to help u
 1. **Log in to Docker Hub**: `docker login`
 2. **Tag the Image**:
    ```bash
-   docker tag fortipass-app ramgameer/fortipass:latest
+   docker tag fortipass-app <-your-username->/fortipass:latest
    ```
 3. **Push to Docker Hub**:
    ```bash
-   docker push ramgameer/fortipass:latest
+   docker push <-your-username->/fortipass:latest
    ```
 4. **Pull and Run Anywhere**:
    ```bash
-   docker pull ramgameer/fortipass:latest
-   docker run -d -p 80:80 ramgameer/fortipass:latest
+   docker pull <-your-username->/fortipass:latest
+   docker run -d -p 5000:5000 <-your-username->/fortipass:latest
    ```
 
 ---
